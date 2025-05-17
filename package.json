@@ -8,9 +8,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "publish": "npm version patch && npm publish",
-    "git-push": "git add . && git commit -m 'publish types' && git push",
-    "push": "npm run prepare && npm run publish && npm run git-push"
+    "publish": "npm run prepare && npm version patch && npm publish"
   },
   "files": [
     "dist"
