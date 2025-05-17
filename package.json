@@ -1,0 +1,23 @@
+{
+  "name": "abipulli-types",
+  "version": "1.0.2",
+  "description": "Shared TypeScript types for frontend and backend",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "Leif Etter",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
