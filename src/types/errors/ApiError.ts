@@ -31,4 +31,11 @@ export class ApiError extends Error {
       info: errorInfo?.msg ?? "Internal Server Error",
     });
   }
+
+  static notFound({ resource }: { resource: string }): ApiError {
+    return new ApiError({
+      code: 404,
+      info: `Resource ${resource} not found`,
+    });
+  }
 }
