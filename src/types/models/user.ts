@@ -1,5 +1,7 @@
+import { UserRole } from "./role";
+
 export interface User {
-  id: number;
+  id: string;
   email: string;
   name: string;
   password: string;
@@ -9,13 +11,5 @@ export interface User {
   role: UserRole;
 }
 
-export interface UserRole {
-  id: number;
-  roleName: string;
-  rolePower: number;
-}
-
 export type UserCreateInput = Omit<User, "id" | "createdAt" | "updatedAt">;
-export type UserUpdateInput = Partial<
-  Omit<User, "id" | "createdAt" | "updatedAt">
->;
+export type UserUpdateInput = Partial<Omit<User, "id">> & { id: string };

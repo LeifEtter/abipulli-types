@@ -1,14 +1,13 @@
-import { ApiResponse, PaginatedResponse } from "./types/api";
-import { Chat } from "./types/chat";
-import { Design } from "./types/design";
-import { Order } from "./types/order";
-import { User } from "./types/user";
+import { ApiResponse, PaginatedResponse } from "./types/api/responses";
+import { Chat } from "./types/models/chat";
+import { Design } from "./types/models/design";
+import { Order } from "./types/models/order";
+import { User } from "./types/models/user";
 
-export * from "./types/user";
-export * from "./types/order";
-export * from "./types/api";
-export * from "./types/chat";
-export * from "./types/design";
+export * from "./types/models";
+export * from "./types/errors/ApiError";
+export * from "./types/errors/errorMessages";
+export * from "./types/api/responses";
 
 export type UserResponse = ApiResponse<User>;
 export type UsersResponse = PaginatedResponse<User>;

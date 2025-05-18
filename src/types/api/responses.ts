@@ -10,9 +10,3 @@ export type PaginatedResponse<T> = ApiResponse<{
   page: number;
   pageSize: number;
 }>;
-
-export type ApiError = {
-  code: string;
-  message: string;
-  details?: unknown;
-};
