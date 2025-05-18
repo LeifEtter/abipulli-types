@@ -9,4 +9,11 @@ export const errorMessages = {
   missingImage: "No image file provided",
   imageUploadFailed: "Failed to upload image",
   issueUploadingImage: "There was an issue uploading your image",
-} as const;
+  missingBodyInfo: "Missing body information",
+  paramIdMissing: "Missing parameter ID",
+  paramIdMalformed: "Parameter ID is malformed",
+  tokenUserDoesNotExist: "Token user does not exist",
+  emailNotFound: "Email not found",
+  faultySSOCredentials: "Invalid SSO credentials",
+  missingToken: "Missing token",
+};
