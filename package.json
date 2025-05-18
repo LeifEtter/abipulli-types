@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "publish": "npm run prepare && npm version patch && npm publish"
+    "publish-all": "npm run prepare && npm version patch && npm publish"
   },
   "files": [
     "dist"
