@@ -47,3 +47,13 @@ export const OrderCompleteSchema = OrderSchema.pick({
   billingAddress: true,
 });
 export type OrderComplete = z.infer<typeof OrderCompleteSchema>;
+
+export const OrderUpdateSchema = OrderSchema.omit({
+  id: true,
+  customerId: true,
+  createdAt: true,
+  updatedAt: true,
+  designs: true,
+  chats: true,
+}).partial();
+export type OrderUpdate = z.infer<typeof OrderUpdateSchema>;
