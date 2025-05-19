@@ -4,7 +4,7 @@ import { Design } from "./types/models/design";
 import { Order } from "./types/models/order";
 import { User } from "./types/models/user";
 export * from "./types/models";
-export * from "./types/errors/ApiError";
+export * from "./types/errors/errorInfo";
 export * from "./types/errors/errorMessages";
 export * from "./types/api/responses";
 export type UserResponse = ApiResponse<User>;

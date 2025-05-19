@@ -1,9 +1,9 @@
-import { ApiError } from "../errors/ApiError";
+import { ErrorInfo } from "../errors/errorInfo";
 
 export type ApiResponse<T> = {
   success: boolean;
   data?: T;
-  error?: ApiError;
+  error?: ErrorInfo;
 };
 
 export type PaginatedResponse<T> = ApiResponse<{
