@@ -5,3 +5,5 @@ export * from "./user";
 export * from "./role";
 export * from "./image";
 export * from "./textElement";
+export * from "./message";
+export * from "./pullover";
