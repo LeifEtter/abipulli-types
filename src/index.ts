@@ -1,6 +1,13 @@
 import { ApiResponse, PaginatedResponse } from "./types/api/responses";
+import {
+  Image,
+  Message,
+  Pullover,
+  TextElement,
+  UserRole,
+} from "./types/models";
 import { Chat } from "./types/models/chat";
-import { Design } from "./types/models/design";
+import { Design, DesignSuggestion } from "./types/models/design";
 import { Order } from "./types/models/order";
 import { User } from "./types/models/user";
 
@@ -16,3 +23,16 @@ export type OrdersResponse = PaginatedResponse<Order>;
 export type DesignResponse = ApiResponse<Design>;
 export type DesignsResponse = PaginatedResponse<Design>;
 export type ChatResponse = ApiResponse<Chat>;
+export type ChatsResponse = PaginatedResponse<Chat>;
+export type MessageResponse = ApiResponse<Message>;
+export type MessagesResponse = PaginatedResponse<Message>;
+export type PulloverResponse = ApiResponse<Pullover>;
+export type PulloversResponse = PaginatedResponse<Pullover>;
+export type TextElementResponse = ApiResponse<TextElement>;
+export type TextElementsResponse = PaginatedResponse<TextElement>;
+export type ImageResponse = ApiResponse<Image>;
+export type ImagesResponse = PaginatedResponse<Image>;
+export type DesignSuggestionResponse = ApiResponse<DesignSuggestion>;
+export type DesignSuggestionsResponse = PaginatedResponse<DesignSuggestion>;
+export type UserRoleResponse = ApiResponse<UserRole>;
+export type UserRolesResponse = PaginatedResponse<UserRole>;
