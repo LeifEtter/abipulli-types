@@ -1,38 +1,49 @@
-import { User } from "./user";
-import { Chat } from "./chat";
-import { Design } from "./design";
+import { ChatSchema } from "./chat";
+import { DesignSchema } from "./design";
+import { UserSchema } from "./user";
+import { z } from "zod";
 
-export enum OrderStatus {
-  CREATED = "CREATED",
-  BASIC_INFO = "BASIC_INFO",
-  DESIGNING = "DESIGNING",
-  REVISING = "REVISING",
-  FINISHING_INFO = "FINISHING_INFO",
-}
+export const OrderStatusSchema = z.union([
+  z.literal("CREATED"),
+  z.literal("BASIC_INFO"),
+  z.literal("DESIGNING"),
+  z.literal("REVISING"),
+  z.literal("FINISHING_INFO"),
+]);
 
-export interface Order {
-  id: number;
-  customerId: number;
-  customer?: User;
-  deadline?: Date;
-  destinationCountry?: string;
-  studentAmount?: number;
-  schoolName?: string;
-  motto?: string;
-  deliveryAddress?: string;
-  createdAt: Date;
-  updatedAt: Date;
-  status: OrderStatus;
-  designs?: Design[];
-  chats?: Chat[];
-}
+export type OrderStatus = z.infer<typeof OrderStatusSchema>;
 
-export type OrderCreateInput = Omit<
-  Order,
-  "id" | "createdAt" | "updatedAt" | "designs" | "chats"
->;
+export const OrderSchema = z.object({
+  id: z.number(),
+  customerId: z.number(),
+  customer: UserSchema.optional(),
+  deadline: z.coerce.date(),
+  schoolCountry: z.string(),
+  studentAmount: z.number(),
+  school: z.string(),
+  motto: z.string(),
+  deliveryAddress: z.string(),
+  billingAddress: z.string(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  status: OrderStatusSchema,
+  designs: z.array(DesignSchema),
+  chats: z.array(ChatSchema),
+});
+export type Order = z.infer<typeof OrderSchema>;
 
-// All fields optional but "id" is mandatory
-export type OrderUpdateInput = {
-  id: number;
-} & Partial<Omit<Order, "id">>;
+export const OrderCreateSchema = OrderSchema.pick({
+  school: true,
+  schoolCountry: true,
+}).extend({
+  motto: OrderSchema.shape.motto.optional(),
+  deadline: OrderSchema.shape.deadline.optional(),
+  studentAmount: OrderSchema.shape.studentAmount.optional(),
+});
+export type OrderCreate = z.infer<typeof OrderCreateSchema>;
+export const OrderCompleteSchema = OrderSchema.pick({
+  studentAmount: true,
+  deliveryAddress: true,
+  billingAddress: true,
+});
+export type OrderComplete = z.infer<typeof OrderCompleteSchema>;

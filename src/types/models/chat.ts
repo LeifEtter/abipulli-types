@@ -1,41 +1,17 @@
-import { Design } from "./design";
-import { Order } from "./order";
-import { User } from "./user";
+import { z } from "zod";
+import { UserSchema } from "./user";
+import { MessageSchema } from "./message";
 
-export interface Chat {
-  id: number;
-  messages: Message[];
-  lastMessageAt: Date;
-  createdAt: Date;
-  updatedAt: Date;
-  orderId: number;
-  order?: Order;
-  userId: number;
-  user?: User;
-  assignedAdminId?: number;
-  assignedAdmin?: User;
-}
-
-export interface Message {
-  id: number;
-  content: string;
-  senderId: number;
-  sender?: User;
-  designId?: number;
-  design?: Design;
-  chatId: number;
-  chat?: Chat;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export type ChatCreateInput = Omit<
-  Chat,
-  "id" | "createdAt" | "updatedAt" | "order" | "user"
->;
-export type ChatUpdateInput = Partial<Omit<Chat, "id">> & { id: number };
-
-export type MessageCreateInput = Omit<
-  Message,
-  "id" | "createdAt" | "updatedAt" | "senderId"
->;
+export const ChatSchema = z.object({
+  id: z.number(),
+  messages: z.array(MessageSchema),
+  lastMessageAt: z.coerce.date(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  orderId: z.number(),
+  userId: z.number(),
+  user: UserSchema.optional(),
+  assignedAdminId: z.number().optional(),
+  assignedAdmin: UserSchema.optional(),
+});
+export type Chat = z.infer<typeof ChatSchema>;

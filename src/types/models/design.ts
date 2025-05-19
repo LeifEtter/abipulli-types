@@ -1,66 +1,42 @@
-import { Chat } from "./chat";
-import { Order } from "./order";
-import { User } from "./user";
+import { z } from "zod";
+import { TextElementSchema } from "./textElement";
+import { ImageSchema } from "./image";
+import { PulloverSchema } from "./pullover";
 
-export interface Design {
-  id: number;
-  orderId: number;
-  order?: Order;
-  images: Image[];
-  textElements: TextElement[];
-  designSuggestions: DesignSuggestion[];
-  designCost: number;
-  createdAt: Date;
-  updatedAt: Date;
-}
+export const DesignSuggestionSchema = z.object({
+  id: z.number(),
+  chatId: z.number(),
+  designId: z.number(),
+  accepted: z.boolean().default(false),
+  denied: z.boolean().default(false),
+  suggestion: z.string(),
+  createdAt: z.coerce.date(),
+});
+export type DesignSuggestion = z.infer<typeof DesignSuggestionSchema>;
 
-export type DesignCreateInput = Omit<Design, "id" | "createdAt" | "updatedAt">;
-export type DesignUpdateInput = Partial<Omit<Design, "id">> & { id: number };
-
-export interface DesignSuggestion {
-  id: number;
-  chatId: number;
-  chat?: Chat;
-  suggestion: string;
-  createdAt: Date;
-}
-
-export type DesignSuggestionCreateInput = Omit<
-  DesignSuggestion,
-  "id" | "createdAt"
+export const CreateDesignSuggestionSchema = DesignSuggestionSchema.pick({
+  designId: true,
+  suggestion: true,
+});
+export type CreateDesignSuggestion = z.infer<
+  typeof CreateDesignSuggestionSchema
 >;
-export type DesignSuggestionUpdateInput = Partial<
-  Omit<DesignSuggestion, "id">
-> & { id: number };
 
-export interface Image {
-  id: number;
-  origin: string;
-  createdAt: Date;
-  generated: boolean;
-  prompt: string;
-  userId: number;
-  user?: User;
-  positionX: number;
-  positionY: number;
-}
+export const DesignSchema = z.object({
+  id: z.number(),
+  orderId: z.number(),
+  preferredPulloverId: z.number().optional(),
+  preferredPullover: PulloverSchema.optional(),
+  images: z.array(ImageSchema),
+  textElements: z.array(TextElementSchema),
+  designSuggestions: z.array(DesignSuggestionSchema),
+  designCost: z.number(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+});
+export type Design = z.infer<typeof DesignSchema>;
 
-export type ImageCreateInput = Omit<Image, "id" | "createdAt">;
-export type ImageUpdateInput = Partial<Omit<Image, "id">> & { id: number };
-
-export interface TextElement {
-  id: number;
-  text: string;
-  createdAt: Date;
-  positionX: number;
-  positionY: number;
-  fontSize: number;
-  fontColor: string;
-  fontWeight: number;
-  fontStyle: string;
-}
-
-export type TextElementCreateInput = Omit<TextElement, "id" | "createdAt">;
-export type TextElementUpdateInput = Partial<Omit<TextElement, "id">> & {
-  id: number;
-};
+export const CreateDesignSchema = DesignSchema.pick({
+  preferredPulloverId: true,
+});
+export type CreateDesign = z.infer<typeof CreateDesignSchema>;
