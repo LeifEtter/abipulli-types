@@ -12,12 +12,12 @@ export const ImageSchema = z.object({
 });
 export type Image = z.infer<typeof ImageSchema>;
 
-export const UploadImageSchema = z.object({
+export const ImageUploadSchema = z.object({
   origin: z.string(),
   prompt: z.string(),
   generated: z.boolean(),
 });
-export type UploadImage = z.infer<typeof UploadImageSchema>;
+export type ImageUpload = z.infer<typeof ImageUploadSchema>;
 
 export const DesignImageSchema = z.object({
   imageId: z.number(),

@@ -14,12 +14,12 @@ export const DesignSuggestionSchema = z.object({
 });
 export type DesignSuggestion = z.infer<typeof DesignSuggestionSchema>;
 
-export const CreateDesignSuggestionSchema = DesignSuggestionSchema.pick({
+export const DesignSuggestionCreateSchema = DesignSuggestionSchema.pick({
   designId: true,
   suggestion: true,
 });
-export type CreateDesignSuggestion = z.infer<
-  typeof CreateDesignSuggestionSchema
+export type DesignCreateSuggestion = z.infer<
+  typeof DesignSuggestionCreateSchema
 >;
 
 export const DesignSchema = z.object({
@@ -36,7 +36,7 @@ export const DesignSchema = z.object({
 });
 export type Design = z.infer<typeof DesignSchema>;
 
-export const CreateDesignSchema = DesignSchema.pick({
+export const DesignCreateSchema = DesignSchema.pick({
   preferredPulloverId: true,
 });
-export type CreateDesign = z.infer<typeof CreateDesignSchema>;
+export type DesignCreate = z.infer<typeof DesignCreateSchema>;
