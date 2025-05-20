@@ -42,3 +42,16 @@ export const ManipulateImageInDesignSchema = DesignImageSchema.pick({
 export type ManipulateImageInDesign = z.infer<
   typeof ManipulateImageInDesignSchema
 >;
+
+export const GenerateImageSchema = z.object({
+  prompt: z.string(),
+  styleTags: z.array(z.string()),
+});
+export type GenerateImage = z.infer<typeof GenerateImageSchema>;
+
+export const ImproveImageQuerySchema = z.object({
+  motto: z.string(),
+  styleTags: z.array(z.string()),
+  description: z.string(),
+});
+export type ImproveImageQuery = z.infer<typeof ImproveImageQuerySchema>;
