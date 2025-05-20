@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const UserRoleSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   roleName: z.string(),
   rolePower: z.number(),
 });
