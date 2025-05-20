@@ -42,13 +42,13 @@ export const UserCreateSchema = UserSchema.pick({
   lastName: true,
   school: true,
 });
-export type UserCreateInput = z.infer<typeof UserCreateSchema>;
+export type UserCreate = z.infer<typeof UserCreateSchema>;
 
 export const UserLoginSchema = UserCreateSchema.pick({
   email: true,
   password: true,
 });
-export type UserLoginInput = z.infer<typeof UserLoginSchema>;
+export type UserLogin = z.infer<typeof UserLoginSchema>;
 
 export const UserUpdateSchema = UserCreateSchema.omit({ email: true });
-export type UserUpdateInput = z.infer<typeof UserUpdateSchema>;
+export type UserUpdate = z.infer<typeof UserUpdateSchema>;
