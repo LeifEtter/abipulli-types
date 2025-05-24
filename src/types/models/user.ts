@@ -37,11 +37,10 @@ export type User = z.infer<typeof UserSchema>;
 
 export const UserCreateSchema = UserSchema.pick({
   email: true,
-  password: true,
   firstName: true,
   lastName: true,
   school: true,
-});
+}).extend({ password: PasswordSchema });
 export type UserCreate = z.infer<typeof UserCreateSchema>;
 
 export const UserLoginSchema = UserCreateSchema.pick({
