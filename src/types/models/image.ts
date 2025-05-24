@@ -3,17 +3,14 @@ import { UserSchema } from "./user";
 
 export const ImageSchema = z.object({
   id: z.number(),
-  origin: z.string(),
   createdAt: z.coerce.date(),
   generated: z.boolean(),
   prompt: z.string(),
   userId: z.number(),
-  user: UserSchema.optional(),
 });
 export type Image = z.infer<typeof ImageSchema>;
 
 export const ImageUploadSchema = z.object({
-  origin: z.string(),
   prompt: z.string(),
   generated: z.boolean(),
 });
