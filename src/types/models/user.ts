@@ -31,7 +31,12 @@ export const UserSchema = z.object({
   // orders: OrderSchema.array().optional(),
   storageUsed: z.number(),
   totalCost: z.number(),
+  role: UserRoleSchema.optional(),
   verified: z.boolean(),
+  orders: z.array(OrderSchema).optional(),
+  images: z.array(ImageSchema).optional(),
+  chats: z.array(ChatSchema).optional(),
+  designs: z.array(DesignSchema).optional(),
 });
 export type User = z.infer<typeof UserSchema>;
 
