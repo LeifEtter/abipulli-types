@@ -1,4 +1,4 @@
-import { ApiResponse, PaginatedResponse } from "./types/api/responses";
+import { ApiResponse, Message, PaginatedResponse } from "./types/api/responses";
 import {
   Image,
   ChatMessage,
@@ -16,6 +16,7 @@ export * from "./types/errors/errorInfo";
 export * from "./types/errors/errorMessages";
 export * from "./types/api/responses";
 
+export type MessageResponse = ApiResponse<Message>;
 export type UserResponse = ApiResponse<User>;
 export type UsersResponse = PaginatedResponse<User>;
 export type OrderResponse = ApiResponse<Order>;
