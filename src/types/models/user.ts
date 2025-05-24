@@ -1,3 +1,7 @@
+import { ChatSchema } from "./chat";
+import { DesignSchema } from "./design";
+import { ImageSchema } from "./image";
+import { OrderSchema } from "./order";
 import { UserRoleSchema } from "./role";
 import { z } from "zod";
 
@@ -27,11 +31,9 @@ export const UserSchema = z.object({
   school: z.string(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
-  role: UserRoleSchema,
-  // orders: OrderSchema.array().optional(),
-  storageUsed: z.number(),
-  totalCost: z.number(),
   role: UserRoleSchema.optional(),
+  storageUsed: z.number().optional(),
+  totalCost: z.number().optional(),
   verified: z.boolean(),
   orders: z.array(OrderSchema).optional(),
   images: z.array(ImageSchema).optional(),
