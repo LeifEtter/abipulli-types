@@ -16,7 +16,6 @@ export type OrderStatus = z.infer<typeof OrderStatusSchema>;
 export const OrderSchema = z.object({
   id: z.number(),
   customerId: z.number(),
-  customer: UserSchema.optional(),
   deadline: z.coerce.date(),
   schoolCountry: z.string(),
   studentAmount: z.number(),
@@ -27,8 +26,8 @@ export const OrderSchema = z.object({
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   status: OrderStatusSchema,
-  designs: z.array(DesignSchema),
-  chats: z.array(ChatSchema),
+  designs: z.array(DesignSchema).optional(),
+  chats: z.array(ChatSchema).optional(),
 });
 export type Order = z.infer<typeof OrderSchema>;
 
