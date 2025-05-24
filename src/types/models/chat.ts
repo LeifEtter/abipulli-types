@@ -10,8 +10,6 @@ export const ChatSchema = z.object({
   updatedAt: z.coerce.date(),
   orderId: z.number(),
   userId: z.number(),
-  user: UserSchema.optional(),
   assignedAdminId: z.number().optional(),
-  assignedAdmin: UserSchema.optional(),
 });
 export type Chat = z.infer<typeof ChatSchema>;
