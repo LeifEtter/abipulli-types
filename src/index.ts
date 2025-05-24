@@ -1,7 +1,7 @@
 import { ApiResponse, PaginatedResponse } from "./types/api/responses";
 import {
   Image,
-  Message,
+  ChatMessage,
   Pullover,
   TextElement,
   UserRole,
@@ -24,8 +24,8 @@ export type DesignResponse = ApiResponse<Design>;
 export type DesignsResponse = PaginatedResponse<Design>;
 export type ChatResponse = ApiResponse<Chat>;
 export type ChatsResponse = PaginatedResponse<Chat>;
-export type MessageResponse = ApiResponse<Message>;
-export type MessagesResponse = PaginatedResponse<Message>;
+export type ChatMessageResponse = ApiResponse<ChatMessage>;
+export type ChatMessagesResponse = PaginatedResponse<ChatMessage>;
 export type PulloverResponse = ApiResponse<Pullover>;
 export type PulloversResponse = PaginatedResponse<Pullover>;
 export type TextElementResponse = ApiResponse<TextElement>;

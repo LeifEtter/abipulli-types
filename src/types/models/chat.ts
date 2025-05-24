@@ -1,10 +1,10 @@
 import { z } from "zod";
 import { UserSchema } from "./user";
-import { MessageSchema } from "./message";
+import { ChatMessageSchema } from "./chatMessage";
 
 export const ChatSchema = z.object({
   id: z.number(),
-  messages: z.array(MessageSchema),
+  messages: z.array(ChatMessageSchema),
   lastMessageAt: z.coerce.date(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
