@@ -16,6 +16,11 @@ export const ImageUploadSchema = z.object({
 });
 export type ImageUpload = z.infer<typeof ImageUploadSchema>;
 
+export type ImageUploadResult = {
+  link: string;
+  imageId: number;
+};
+
 export const DesignImageSchema = z.object({
   imageId: z.number(),
   image: ImageSchema,
