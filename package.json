@@ -6,7 +6,8 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "delete-dist": "rimraf dist",
+    "build": "npm run delete-dist && tsc",
     "prepare": "npm run build",
     "publish-all": "npm run prepare && npm version patch && npm publish"
   },
@@ -22,6 +23,7 @@
     "access": "public"
   },
   "dependencies": {
-    "zod": "^3.25.1"
+    "rimraf": "^6.0.1",
+    "zod": "^3.25.17"
   }
 }
