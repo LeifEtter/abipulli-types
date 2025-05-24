@@ -27,12 +27,12 @@ export const DesignSchema = z.object({
   orderId: z.number(),
   preferredPulloverId: z.number().optional(),
   preferredPullover: PulloverSchema.optional(),
-  images: z.array(ImageSchema),
-  textElements: z.array(TextElementSchema),
-  designSuggestions: z.array(DesignSuggestionSchema),
+  images: z.array(ImageSchema).optional(),
+  textElements: z.array(TextElementSchema).optional(),
   designCost: z.number(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
+  customerId: z.number(),
 });
 export type Design = z.infer<typeof DesignSchema>;
 
