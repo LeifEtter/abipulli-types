@@ -1,5 +1,9 @@
 import { ErrorInfo } from "../errors/errorInfo";
 
+export type Message = {
+  message: string;
+};
+
 export type ApiResponse<T> = {
   success: boolean;
   data?: T;
