@@ -2,6 +2,7 @@ import { ApiResponse, Message, PaginatedResponse } from "./types/api/responses";
 import { ErrorInfo } from "./types/errors/errorInfo";
 import {
   Image,
+  ImageUploadResult,
   ChatMessage,
   Pullover,
   TextElement,
@@ -33,6 +34,7 @@ export type PulloversResponse = PaginatedResponse<Pullover>;
 export type TextElementResponse = ApiResponse<TextElement>;
 export type TextElementsResponse = PaginatedResponse<TextElement>;
 export type ImageResponse = ApiResponse<Image>;
+export type ImageUploadResultResponse = ApiResponse<ImageUploadResult>;
 export type ImagesResponse = PaginatedResponse<Image>;
 export type DesignSuggestionResponse = ApiResponse<DesignSuggestion>;
 export type DesignSuggestionsResponse = PaginatedResponse<DesignSuggestion>;
