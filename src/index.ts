@@ -1,4 +1,5 @@
 import { ApiResponse, Message, PaginatedResponse } from "./types/api/responses";
+import { ErrorInfo } from "./types/errors/errorInfo";
 import {
   Image,
   ChatMessage,
@@ -37,3 +38,5 @@ export type DesignSuggestionResponse = ApiResponse<DesignSuggestion>;
 export type DesignSuggestionsResponse = PaginatedResponse<DesignSuggestion>;
 export type UserRoleResponse = ApiResponse<UserRole>;
 export type UserRolesResponse = PaginatedResponse<UserRole>;
+
+export type ErrorResponse = ApiResponse<ErrorInfo>;
