@@ -1,5 +1,9 @@
-import { ApiResponse, Message, PaginatedResponse } from "./types/api/responses";
-import { ErrorInfo } from "./types/errors/errorInfo";
+import {
+  ApiResponse,
+  Message,
+  PaginatedResponse,
+} from "./types/api/responses.js";
+import { ErrorInfo } from "./types/errors/errorInfo.js";
 import {
   Image,
   ImageUploadResult,
@@ -7,16 +11,16 @@ import {
   Pullover,
   TextElement,
   UserRole,
-} from "./types/models";
-import { Chat } from "./types/models/chat";
-import { Design, DesignSuggestion } from "./types/models/design";
-import { Order } from "./types/models/order";
-import { User } from "./types/models/user";
+} from "./types/models/index.js";
+import { Chat } from "./types/models/chat.js";
+import { Design, DesignSuggestion } from "./types/models/design.js";
+import { Order } from "./types/models/order.js";
+import { User } from "./types/models/user.js";
 
-export * from "./types/models";
-export * from "./types/errors/errorInfo";
-export * from "./types/errors/errorMessages";
-export * from "./types/api/responses";
+export * from "./types/models/index.js";
+export * from "./types/errors/errorInfo.js";
+export * from "./types/errors/errorMessages.js";
+export * from "./types/api/responses.js";
 
 export type MessageResponse = ApiResponse<Message>;
 export type UserResponse = ApiResponse<User>;

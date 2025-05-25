@@ -1,4 +1,4 @@
-import { ErrorInfo } from "../errors/errorInfo";
+import { ErrorInfo } from "../errors/errorInfo.js";
 
 export type Message = {
   message: string;

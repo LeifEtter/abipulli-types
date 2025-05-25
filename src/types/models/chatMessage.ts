@@ -1,6 +1,5 @@
 import { z } from "zod";
-import { UserSchema } from "./user";
-import { DesignSchema } from "./design";
+import { DesignSchema } from "./design.js";
 
 export const ChatMessageSchema = z.object({
   id: z.number(),

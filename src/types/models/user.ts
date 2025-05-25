@@ -1,8 +1,8 @@
-import { ChatSchema } from "./chat";
-import { DesignSchema } from "./design";
-import { ImageSchema } from "./image";
-import { OrderSchema } from "./order";
-import { UserRoleSchema } from "./role";
+import { ChatSchema } from "./chat.js";
+import { DesignSchema } from "./design.js";
+import { ImageSchema } from "./image.js";
+import { OrderSchema } from "./order.js";
+import { UserRoleSchema } from "./role.js";
 import { z } from "zod";
 
 export const PasswordSchema = z

@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { UserSchema } from "./user";
 
 export const ImageSchema = z.object({
   id: z.number(),

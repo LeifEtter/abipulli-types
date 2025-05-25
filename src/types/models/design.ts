@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { TextElementSchema } from "./textElement";
-import { ImageSchema } from "./image";
-import { PulloverSchema } from "./pullover";
+import { TextElementSchema } from "./textElement.js";
+import { ImageSchema } from "./image.js";
+import { PulloverSchema } from "./pullover.js";
 
 export const DesignSuggestionSchema = z.object({
   id: z.number(),

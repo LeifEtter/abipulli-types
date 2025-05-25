@@ -1,6 +1,5 @@
-import { ChatSchema } from "./chat";
-import { DesignSchema } from "./design";
-import { UserSchema } from "./user";
+import { ChatSchema } from "./chat.js";
+import { DesignSchema } from "./design.js";
 import { z } from "zod";
 
 export const OrderStatusSchema = z.union([
