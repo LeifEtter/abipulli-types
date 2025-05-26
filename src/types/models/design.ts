@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { TextElementSchema } from "./textElement.js";
-import { ImageSchema } from "./image.js";
+import { ImageSchema, ImageWithPositionAndScaleSchema } from "./image.js";
 import { PulloverSchema } from "./pullover.js";
 
 export const DesignSuggestionSchema = z.object({
@@ -27,7 +27,7 @@ export const DesignSchema = z.object({
   orderId: z.number(),
   preferredPulloverId: z.number().optional(),
   preferredPullover: PulloverSchema.optional(),
-  images: z.array(ImageSchema).optional(),
+  images: z.array(ImageWithPositionAndScaleSchema).optional(),
   textElements: z.array(TextElementSchema).optional(),
   designCost: z.number(),
   createdAt: z.coerce.date(),

@@ -6,12 +6,25 @@ export const ImageSchema = z.object({
   generated: z.boolean(),
   prompt: z.string(),
   userId: z.number(),
+  uuid: z.string(),
 });
+
 export type Image = z.infer<typeof ImageSchema>;
 
-export const ImageUploadSchema = z.object({
-  prompt: z.string(),
-  generated: z.boolean(),
+export const ImageWithPositionAndScaleSchema = ImageSchema.extend({
+  positionX: z.number().optional(),
+  positionY: z.number().optional(),
+  scale: z.number().optional(),
+  url: z.string().optional(),
+});
+
+export type ImageWithPositionAndScale = z.infer<
+  typeof ImageWithPositionAndScaleSchema
+>;
+
+export const ImageUploadSchema = ImageSchema.pick({
+  prompt: true,
+  generated: true,
 });
 export type ImageUpload = z.infer<typeof ImageUploadSchema>;
 
