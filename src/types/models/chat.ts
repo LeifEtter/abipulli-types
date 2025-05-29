@@ -12,3 +12,11 @@ export const ChatSchema = z.object({
   assignedAdminId: z.number().optional(),
 });
 export type Chat = z.infer<typeof ChatSchema>;
+
+export const ChatCreateSchema = ChatSchema.pick({
+  assignedAdminId: true,
+}).extend({
+  initialMessage: z.string().optional(),
+});
+
+export type ChatCreate = z.infer<typeof ChatCreateSchema>;
