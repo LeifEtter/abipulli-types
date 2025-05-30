@@ -14,8 +14,15 @@ export const TextElementSchema = z.object({
 });
 export type TextElement = z.infer<typeof TextElementSchema>;
 
-export const TextElementCreateSchema = TextElementSchema.omit({ id: true });
-export type TextElementCreate = z.infer<typeof TextElementCreateSchema>;
+export const TextElementCreateParamsSchema = TextElementSchema.omit({
+  id: true,
+});
+export type TextElementCreateParams = z.infer<
+  typeof TextElementCreateParamsSchema
+>;
 
-export const TextElementUpdateSchema = TextElementCreateSchema.partial();
-export type TextElementUpdate = z.infer<typeof TextElementUpdateSchema>;
+export const TextElementUpdateParamsSchema =
+  TextElementCreateParamsSchema.partial();
+export type TextElementUpdateParams = z.infer<
+  typeof TextElementUpdateParamsSchema
+>;

@@ -30,7 +30,7 @@ export const OrderSchema = z.object({
 });
 export type Order = z.infer<typeof OrderSchema>;
 
-export const OrderCreateSchema = OrderSchema.pick({
+export const OrderCreateParamsSchema = OrderSchema.pick({
   school: true,
   schoolCountry: true,
 }).extend({
@@ -38,15 +38,15 @@ export const OrderCreateSchema = OrderSchema.pick({
   deadline: OrderSchema.shape.deadline.optional(),
   studentAmount: OrderSchema.shape.studentAmount.optional(),
 });
-export type OrderCreate = z.infer<typeof OrderCreateSchema>;
-export const OrderCompleteSchema = OrderSchema.pick({
+export type OrderCreateParams = z.infer<typeof OrderCreateParamsSchema>;
+export const OrderCompleteParamsSchema = OrderSchema.pick({
   studentAmount: true,
   deliveryAddress: true,
   billingAddress: true,
 });
-export type OrderComplete = z.infer<typeof OrderCompleteSchema>;
+export type OrderCompleteParams = z.infer<typeof OrderCompleteParamsSchema>;
 
-export const OrderUpdateSchema = OrderSchema.omit({
+export const OrderUpdateParamsSchema = OrderSchema.omit({
   id: true,
   customerId: true,
   createdAt: true,
@@ -54,4 +54,4 @@ export const OrderUpdateSchema = OrderSchema.omit({
   designs: true,
   chats: true,
 }).partial();
-export type OrderUpdate = z.infer<typeof OrderUpdateSchema>;
+export type OrderUpdateParams = z.infer<typeof OrderUpdateParamsSchema>;

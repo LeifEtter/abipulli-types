@@ -7,8 +7,8 @@ export const UserRoleSchema = z.object({
 });
 export type UserRole = z.infer<typeof UserRoleSchema>;
 
-export const UserRoleCreateSchema = UserRoleSchema.omit({ id: true });
-export type UserRoleCreateInput = z.infer<typeof UserRoleCreateSchema>;
+export const UserRoleCreateParamsSchema = UserRoleSchema.omit({ id: true });
+export type UserRoleCreateInput = z.infer<typeof UserRoleCreateParamsSchema>;
 
-export const UserRoleUpdateSchema = UserRoleCreateSchema.partial();
+export const UserRoleUpdateSchema = UserRoleCreateParamsSchema.partial();
 export type UserRoleUpdateInput = z.infer<typeof UserRoleUpdateSchema>;

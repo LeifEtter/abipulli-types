@@ -13,10 +13,10 @@ export const ChatSchema = z.object({
 });
 export type Chat = z.infer<typeof ChatSchema>;
 
-export const ChatCreateSchema = ChatSchema.pick({
+export const ChatCreateParamsSchema = ChatSchema.pick({
   assignedAdminId: true,
 }).extend({
   initialMessage: z.string().optional(),
 });
 
-export type ChatCreate = z.infer<typeof ChatCreateSchema>;
+export type ChatCreateParams = z.infer<typeof ChatCreateParamsSchema>;

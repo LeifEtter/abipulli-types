@@ -12,10 +12,10 @@ export const PulloverSchema = z.object({
 });
 export type Pullover = z.infer<typeof PulloverSchema>;
 
-export const PulloverCreateSchema = PulloverSchema.pick({
+export const PulloverCreateParamsSchema = PulloverSchema.pick({
   name: true,
   description: true,
   basePrice: true,
   color: true,
 });
-export type PulloverCreate = z.infer<typeof PulloverCreateSchema>;
+export type PulloverCreateParams = z.infer<typeof PulloverCreateParamsSchema>;

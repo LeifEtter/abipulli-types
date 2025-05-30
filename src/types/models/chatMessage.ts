@@ -12,9 +12,11 @@ export const ChatMessageSchema = z.object({
 });
 export type ChatMessage = z.infer<typeof ChatMessageSchema>;
 
-export const ChatMessageCreateSchema = ChatMessageSchema.pick({
+export const ChatMessageCreateParamsSchema = ChatMessageSchema.pick({
   content: true,
   senderId: true,
   designId: true,
 });
-export type MessageCreate = z.infer<typeof ChatMessageCreateSchema>;
+export type ChatMessageCreateParams = z.infer<
+  typeof ChatMessageCreateParamsSchema
+>;

@@ -42,19 +42,21 @@ export const UserSchema = z.object({
 });
 export type User = z.infer<typeof UserSchema>;
 
-export const UserCreateSchema = UserSchema.pick({
+export const UserCreateParamsSchema = UserSchema.pick({
   email: true,
   firstName: true,
   lastName: true,
   school: true,
 }).extend({ password: PasswordSchema });
-export type UserCreate = z.infer<typeof UserCreateSchema>;
+export type UserCreateParams = z.infer<typeof UserCreateParamsSchema>;
 
-export const UserLoginSchema = UserCreateSchema.pick({
+export const UserLoginParamsSchema = UserCreateParamsSchema.pick({
   email: true,
   password: true,
 });
-export type UserLogin = z.infer<typeof UserLoginSchema>;
+export type UserLoginParams = z.infer<typeof UserLoginParamsSchema>;
 
-export const UserUpdateSchema = UserCreateSchema.omit({ email: true });
-export type UserUpdate = z.infer<typeof UserUpdateSchema>;
+export const UserUpdateParamsSchema = UserCreateParamsSchema.omit({
+  email: true,
+});
+export type UserUpdateParams = z.infer<typeof UserUpdateParamsSchema>;

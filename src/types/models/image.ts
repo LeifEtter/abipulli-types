@@ -22,11 +22,11 @@ export type ImageWithPositionAndScale = z.infer<
   typeof ImageWithPositionAndScaleSchema
 >;
 
-export const ImageUploadSchema = ImageSchema.pick({
+export const ImageUploadParamsSchema = ImageSchema.pick({
   prompt: true,
   generated: true,
 });
-export type ImageUpload = z.infer<typeof ImageUploadSchema>;
+export type ImageUploadParams = z.infer<typeof ImageUploadParamsSchema>;
 
 export type ImageUploadResult = {
   link: string;
@@ -41,31 +41,35 @@ export const DesignImageSchema = z.object({
   scale: z.number(),
 });
 
-export const AddImageToDesignSchema = DesignImageSchema.pick({
+export const AddImageToDesignParamsSchema = DesignImageSchema.pick({
   positionX: true,
   positionY: true,
   scale: true,
 });
-export type AddImageToDesign = z.infer<typeof AddImageToDesignSchema>;
+export type AddImageToDesignParams = z.infer<
+  typeof AddImageToDesignParamsSchema
+>;
 
-export const ManipulateImageInDesignSchema = DesignImageSchema.pick({
+export const ManipulateImageInDesignParamsSchema = DesignImageSchema.pick({
   positionX: true,
   positionY: true,
   scale: true,
 }).partial();
-export type ManipulateImageInDesign = z.infer<
-  typeof ManipulateImageInDesignSchema
+export type ManipulateImageInDesignParams = z.infer<
+  typeof ManipulateImageInDesignParamsSchema
 >;
 
-export const GenerateImageSchema = z.object({
+export const GenerateImageParamsSchema = z.object({
   prompt: z.string(),
   styleTags: z.array(z.string()),
 });
-export type GenerateImage = z.infer<typeof GenerateImageSchema>;
+export type GenerateImageParams = z.infer<typeof GenerateImageParamsSchema>;
 
-export const ImproveImageQuerySchema = z.object({
+export const ImproveImageQueryParamsSchema = z.object({
   motto: z.string(),
   styleTags: z.array(z.string()),
   description: z.string(),
 });
-export type ImproveImageQuery = z.infer<typeof ImproveImageQuerySchema>;
+export type ImproveImageQueryParams = z.infer<
+  typeof ImproveImageQueryParamsSchema
+>;

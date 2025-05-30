@@ -36,7 +36,7 @@ export const DesignSchema = z.object({
 });
 export type Design = z.infer<typeof DesignSchema>;
 
-export const DesignCreateSchema = DesignSchema.pick({
+export const DesignCreateParamsSchema = DesignSchema.pick({
   preferredPulloverId: true,
 });
-export type DesignCreate = z.infer<typeof DesignCreateSchema>;
+export type DesignCreateParams = z.infer<typeof DesignCreateParamsSchema>;
