@@ -20,3 +20,10 @@ export const ChatCreateParamsSchema = ChatSchema.pick({
 });
 
 export type ChatCreateParams = z.infer<typeof ChatCreateParamsSchema>;
+
+export const ChatCreateResultSchema = ChatSchema.pick({
+  id: true,
+  assignedAdminId: true,
+});
+
+export type ChatCreateResult = z.infer<typeof ChatCreateResultSchema>;
