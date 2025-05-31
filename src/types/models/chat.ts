@@ -7,7 +7,7 @@ export const ChatSchema = z.object({
   lastMessageAt: z.coerce.date(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
-  orderId: z.number(),
+  orderId: z.number().optional(),
   userId: z.number(),
   assignedAdminId: z.number().optional(),
 });
