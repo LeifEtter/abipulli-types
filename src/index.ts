@@ -25,6 +25,7 @@ export * from "./types/api/responses.js";
 export type MessageResponse = ApiResponse<Message>;
 export type UserResponse = ApiResponse<User>;
 export type UsersResponse = PaginatedResponse<User>;
+export type UserLoginResponse = ApiResponse<UserLoginResult>;
 export type OrderResponse = ApiResponse<Order>;
 export type OrdersResponse = PaginatedResponse<Order>;
 export type DesignResponse = ApiResponse<Design>;

@@ -60,3 +60,9 @@ export const UserUpdateParamsSchema = UserCreateParamsSchema.omit({
   email: true,
 });
 export type UserUpdateParams = z.infer<typeof UserUpdateParamsSchema>;
+
+const UserLoginResultSchema = UserSchema.pick({ id: true }).extend({
+  token: z.string(),
+});
+export type UserLoginResult = z.infer<typeof UserLoginResultSchema>;
+
