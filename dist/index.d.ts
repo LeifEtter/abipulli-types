@@ -4,7 +4,7 @@ import { Image, ImageUploadResult, ChatMessage, Pullover, TextElement, UserRole 
 import { Chat } from "./types/models/chat.js";
 import { Design, DesignSuggestion } from "./types/models/design.js";
 import { Order } from "./types/models/order.js";
-import { User } from "./types/models/user.js";
+import { User, UserCheckAuthResult, UserLoginResult } from "./types/models/user.js";
 export * from "./types/models/index.js";
 export * from "./types/errors/errorInfo.js";
 export * from "./types/errors/errorMessages.js";
@@ -12,6 +12,8 @@ export * from "./types/api/responses.js";
 export type MessageResponse = ApiResponse<Message>;
 export type UserResponse = ApiResponse<User>;
 export type UsersResponse = PaginatedResponse<User>;
+export type UserLoginResponse = ApiResponse<UserLoginResult>;
+export type UserCheckAuthResponse = ApiResponse<UserCheckAuthResult>;
 export type OrderResponse = ApiResponse<Order>;
 export type OrdersResponse = PaginatedResponse<Order>;
 export type DesignResponse = ApiResponse<Design>;
