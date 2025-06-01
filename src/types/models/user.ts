@@ -66,3 +66,5 @@ const UserLoginResultSchema = UserSchema.pick({ id: true }).extend({
 });
 export type UserLoginResult = z.infer<typeof UserLoginResultSchema>;
 
+const UserCheckAuthResultSchema = UserSchema.pick({ id: true });
+export type UserCheckAuthResult = z.infer<typeof UserCheckAuthResultSchema>;
