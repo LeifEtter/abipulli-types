@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { ImageSchema } from "./image";
 
 export const PulloverSchema = z.object({
   id: z.number(),
@@ -9,6 +10,7 @@ export const PulloverSchema = z.object({
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   imageId: z.number(),
+  image: ImageSchema,
 });
 export type Pullover = z.infer<typeof PulloverSchema>;
 
