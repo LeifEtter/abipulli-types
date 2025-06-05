@@ -14,7 +14,8 @@ export type Image = z.infer<typeof ImageSchema>;
 export const ImageWithPositionAndScaleSchema = ImageSchema.extend({
   positionX: z.number().optional(),
   positionY: z.number().optional(),
-  scale: z.number().optional(),
+  scaleX: z.number().optional(),
+  scaleY: z.number().optional(),
   url: z.string().optional(),
 });
 
@@ -38,13 +39,13 @@ export const DesignImageSchema = z.object({
   image: ImageSchema,
   positionX: z.number(),
   positionY: z.number(),
-  scale: z.number(),
+  scaleX: z.number().optional(),
+  scaleY: z.number().optional(),
 });
 
 export const AddImageToDesignParamsSchema = DesignImageSchema.pick({
   positionX: true,
   positionY: true,
-  scale: true,
 });
 export type AddImageToDesignParams = z.infer<
   typeof AddImageToDesignParamsSchema
@@ -53,7 +54,8 @@ export type AddImageToDesignParams = z.infer<
 export const ManipulateImageInDesignParamsSchema = DesignImageSchema.pick({
   positionX: true,
   positionY: true,
-  scale: true,
+  scaleX: true,
+  scaleY: true,
 }).partial();
 export type ManipulateImageInDesignParams = z.infer<
   typeof ManipulateImageInDesignParamsSchema
