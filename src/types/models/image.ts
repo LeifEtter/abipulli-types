@@ -3,8 +3,8 @@ import { z } from "zod";
 export const ImageSchema = z.object({
   id: z.number(),
   createdAt: z.coerce.date(),
-  generated: z.boolean(),
-  prompt: z.string(),
+  generated: z.boolean().optional(),
+  prompt: z.string().optional(),
   userId: z.number(),
   uuid: z.string(),
 });
