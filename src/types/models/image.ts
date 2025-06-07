@@ -5,7 +5,7 @@ export const ImageSchema = z.object({
   createdAt: z.coerce.date(),
   generated: z.boolean().optional(),
   prompt: z.string().optional(),
-  userId: z.number(),
+  userId: z.number().optional(),
   uuid: z.string(),
 });
 
