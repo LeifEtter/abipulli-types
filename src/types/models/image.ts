@@ -7,6 +7,8 @@ export const ImageSchema = z.object({
   prompt: z.string().optional(),
   userId: z.number().optional(),
   uuid: z.string(),
+  width: z.number(),
+  height: z.number(),
 });
 
 export type Image = z.infer<typeof ImageSchema>;
