@@ -9,6 +9,7 @@ export const ImageSchema = z.object({
   uuid: z.string(),
   width: z.number(),
   height: z.number(),
+  url: z.string(),
 });
 
 export type Image = z.infer<typeof ImageSchema>;
@@ -18,7 +19,6 @@ export const ImageWithPositionAndScaleSchema = ImageSchema.extend({
   positionY: z.number().optional(),
   scaleX: z.number().optional(),
   scaleY: z.number().optional(),
-  url: z.string().optional(),
 });
 
 export type ImageWithPositionAndScale = z.infer<
