@@ -19,6 +19,7 @@ export const ImageWithPositionAndScaleSchema = ImageSchema.extend({
   positionY: z.number().optional(),
   scaleX: z.number().optional(),
   scaleY: z.number().optional(),
+  imageToDesignId: z.number(),
 });
 
 export type ImageWithPositionAndScale = z.infer<
@@ -38,6 +39,7 @@ export type ImageUploadResult = {
 
 export const DesignImageSchema = z.object({
   imageId: z.number(),
+  imageToDesignId: z.number(),
   image: ImageSchema,
   positionX: z.number(),
   positionY: z.number(),
