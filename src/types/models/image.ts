@@ -48,6 +48,9 @@ export const DesignImageSchema = z.object({
 export const AddImageToDesignParamsSchema = DesignImageSchema.pick({
   positionX: true,
   positionY: true,
+}).extend({
+  scaleX: z.number(),
+  scaleY: z.number(),
 });
 export type AddImageToDesignParams = z.infer<
   typeof AddImageToDesignParamsSchema
