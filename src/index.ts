@@ -49,6 +49,7 @@ export type ImageUploadResultResponse = ApiResponse<ImageUploadResult>;
 export type ImagesResponse = PaginatedResponse<Image>;
 export type ImagesForDesignResponse =
   PaginatedResponse<ImageWithPositionAndScale>;
+export type AddImageToDesignResponse = ApiResponse<ImageWithPositionAndScale>;
 export type DesignSuggestionResponse = ApiResponse<DesignSuggestion>;
 export type DesignSuggestionsResponse = PaginatedResponse<DesignSuggestion>;
 export type UserRoleResponse = ApiResponse<UserRole>;
