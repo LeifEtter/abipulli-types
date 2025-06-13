@@ -21,6 +21,7 @@ import {
   UserCheckAuthResult,
   UserLoginResult,
 } from "./types/models/user.js";
+import { Prompt } from "./types/models/prompt.js";
 
 export * from "./types/models/index.js";
 export * from "./types/errors/errorInfo.js";
@@ -54,5 +55,7 @@ export type DesignSuggestionResponse = ApiResponse<DesignSuggestion>;
 export type DesignSuggestionsResponse = PaginatedResponse<DesignSuggestion>;
 export type UserRoleResponse = ApiResponse<UserRole>;
 export type UserRolesResponse = PaginatedResponse<UserRole>;
+export type PromptResponse = ApiResponse<Prompt>;
+export type PromptsResponse = PaginatedResponse<Prompt>;
 
 export type ErrorResponse = ApiResponse<ErrorInfo>;
