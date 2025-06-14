@@ -11,3 +11,11 @@ export const PromptSchema = z.object({
   updatedAt: z.coerce.date(),
 });
 export type Prompt = z.infer<typeof PromptSchema>;
+
+export const PromptCreateParamsSchema = PromptSchema.pick({
+  title: true,
+  content: true,
+  purpose: true,
+});
+
+export type PromptCreateParams = z.infer<typeof PromptCreateParamsSchema>;
