@@ -12,6 +12,7 @@ import {
   TextElement,
   UserRole,
   ImageWithPositionAndScale,
+  ImproveImageQueryResult,
 } from "./types/models/index.js";
 import { Chat } from "./types/models/chat.js";
 import { Design, DesignSuggestion } from "./types/models/design.js";
@@ -57,5 +58,7 @@ export type UserRoleResponse = ApiResponse<UserRole>;
 export type UserRolesResponse = PaginatedResponse<UserRole>;
 export type PromptResponse = ApiResponse<Prompt>;
 export type PromptsResponse = PaginatedResponse<Prompt>;
+
+export type ImproveImageQueryResponse = ApiResponse<ImproveImageQueryResult>;
 
 export type ErrorResponse = ApiResponse<ErrorInfo>;

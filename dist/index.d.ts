@@ -1,6 +1,6 @@
 import { ApiResponse, Message, PaginatedResponse } from "./types/api/responses.js";
 import { ErrorInfo } from "./types/errors/errorInfo.js";
-import { Image, ImageUploadResult, ChatMessage, Pullover, TextElement, UserRole, ImageWithPositionAndScale } from "./types/models/index.js";
+import { Image, ImageUploadResult, ChatMessage, Pullover, TextElement, UserRole, ImageWithPositionAndScale, ImproveImageQueryResult } from "./types/models/index.js";
 import { Chat } from "./types/models/chat.js";
 import { Design, DesignSuggestion } from "./types/models/design.js";
 import { Order } from "./types/models/order.js";
@@ -38,4 +38,5 @@ export type UserRoleResponse = ApiResponse<UserRole>;
 export type UserRolesResponse = PaginatedResponse<UserRole>;
 export type PromptResponse = ApiResponse<Prompt>;
 export type PromptsResponse = PaginatedResponse<Prompt>;
+export type ImproveImageQueryResponse = ApiResponse<ImproveImageQueryResult>;
 export type ErrorResponse = ApiResponse<ErrorInfo>;
