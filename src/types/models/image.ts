@@ -90,3 +90,10 @@ const ImproveImageQueryResultSchema = ImproveImageQueryParamsSchema.pick({
 export type ImproveImageQueryResult = z.infer<
   typeof ImproveImageQueryResultSchema
 >;
+
+export const ImproveImageParamsSchema = ImproveImageQueryParamsSchema.pick({
+  styleTags: true,
+  description: true,
+});
+
+export type ImproveImageParams = z.infer<typeof ImproveImageParamsSchema>;
