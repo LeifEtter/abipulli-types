@@ -46,6 +46,9 @@ export const StyleTypeList = [
 ] as const;
 export type StyleType = (typeof StyleTypeList)[number];
 
+export const RenderingSpeedTypeList = ["TURBO", "DEFAULT", "QUALITY"] as const;
+export type RenderingSpeed = (typeof RenderingSpeedTypeList)[number];
+
 export const IdeogramRequestSchema = z.object({
   prompt: z.string(),
   seed: z.string().optional(),
@@ -58,6 +61,7 @@ export const IdeogramRequestSchema = z.object({
   style_codes: z.array(z.string()).optional(),
   style_type: z.enum(StyleTypeList).optional(),
   style_reference_images: z.any().array().optional(),
+  rendering_speed: z.enum(RenderingSpeedTypeList).optional(),
 });
 
 export type IdeogramRequest = z.infer<typeof IdeogramRequestSchema>;
