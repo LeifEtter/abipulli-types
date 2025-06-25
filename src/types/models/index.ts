@@ -7,3 +7,4 @@ export * from "./image.js";
 export * from "./textElement.js";
 export * from "./chatMessage.js";
 export * from "./pullover.js";
+export * from "./ideogram.js";
