@@ -14,7 +14,7 @@ export const IdeogramResponseSchema = z.object({
   created: z.coerce.date(),
   data: z.array(IdeogramImageSchema),
 });
-export type IdeogramResponse = z.infer<typeof IdeogramImageSchema>;
+export type IdeogramResponse = z.infer<typeof IdeogramResponseSchema>;
 
 export const AspectRatioList = [
   "1x3",
