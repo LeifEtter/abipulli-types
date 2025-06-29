@@ -19,7 +19,7 @@
     "delete-dist": "rimraf dist",
     "build": "npm run delete-dist && npx tsup src/index.ts --dts --format esm --out-dir dist",
     "prepare": "npm run build",
-    "publish-all": "npm run prepare && npm version patch && npm publish"
+    "publish-all": "npm version patch && npm publish"
   },
   "files": [
     "dist"
