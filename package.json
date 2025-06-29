@@ -27,6 +27,7 @@
   "author": "Leif Etter",
   "license": "ISC",
   "devDependencies": {
+    "tsup": "^8.5.0",
     "typescript": "^5.3.3"
   },
   "publishConfig": {
