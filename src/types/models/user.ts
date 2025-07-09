@@ -22,6 +22,30 @@ export const PasswordSchema = z
     "Password must contain at least one special character"
   );
 
+export const CountryCodeSchema = z.union([
+  z.literal("DE"),
+  z.literal("CH"),
+  z.literal("AT"),
+]);
+
+export type CountryCode = z.infer<typeof CountryCodeSchema>;
+
+export const GenderSchema = z.union([
+  z.literal("male"),
+  z.literal("female"),
+  z.literal("diverse"),
+]);
+
+export type Gender = z.infer<typeof GenderSchema>;
+
+export const MobileCountryCodeSchema = z.union([
+  z.literal("+49"),
+  z.literal("+41"),
+  z.literal("+43"),
+]);
+
+export type MobileCountryCode = z.infer<typeof MobileCountryCodeSchema>;
+
 export const UserSchema = z.object({
   id: z.number(),
   email: z.string().email(),
