@@ -75,6 +75,25 @@ export const UserSchema = z.object({
 });
 export type User = z.infer<typeof UserSchema>;
 
+export const OnboardingInfoSchema = UserSchema.pick({
+  email: true,
+  password: true,
+  firstName: true,
+  lastName: true,
+  mobileCountryCode: true,
+  mobileNumber: true,
+  birthdate: true,
+  school: true,
+  grade: true,
+  graduationYear: true,
+  city: true,
+  countryCode: true,
+  deadline: true,
+  gender: true,
+});
+
+export type OnboardingInfo = z.infer<typeof OnboardingInfoSchema>;
+
 export const UserCreateParamsSchema = UserSchema.pick({
   email: true,
   firstName: true,
