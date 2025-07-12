@@ -30,8 +30,8 @@ export * from "./types/errors/errorMessages.js";
 export * from "./types/api/responses.js";
 
 export type MessageResponse = ApiResponse<Message>;
-export type UserResponse = ApiResponse<User>;
-export type UsersResponse = PaginatedResponse<User>;
+export type UserResponse = ApiResponse<Omit<User, "password">>;
+export type UsersResponse = PaginatedResponse<Omit<User, "password">>;
 export type UserLoginResponse = ApiResponse<UserLoginResult>;
 export type UserCheckAuthResponse = ApiResponse<UserCheckAuthResult>;
 export type OrderResponse = ApiResponse<Order>;
