@@ -113,6 +113,14 @@ export const UserUpdateParamsSchema = UserCreateParamsSchema.omit({
 });
 export type UserUpdateParams = z.infer<typeof UserUpdateParamsSchema>;
 
+export const UserChangePasswordParamsSchema = UserSchema.pick({
+  password: true,
+}).extend({ oldPassword: z.string() });
+
+export type UserChangePasswordParams = z.infer<
+  typeof UserChangePasswordParamsSchema
+>;
+
 const UserLoginResultSchema = UserSchema.pick({ id: true }).extend({
   token: z.string(),
 });
