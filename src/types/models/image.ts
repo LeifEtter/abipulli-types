@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { AspectRatioList } from "./ideogram";
 
 export const ImageSchema = z.object({
   id: z.number(),
@@ -69,8 +70,9 @@ export type ManipulateImageInDesignParams = z.infer<
 >;
 
 export const GenerateImageParamsSchema = z.object({
+  referenceImageId: z.number().optional(),
   prompt: z.string(),
-  styleTags: z.array(z.string()),
+  aspectRatio: z.enum(AspectRatioList),
 });
 export type GenerateImageParams = z.infer<typeof GenerateImageParamsSchema>;
 
