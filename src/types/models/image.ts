@@ -93,6 +93,12 @@ export type ImproveImageQueryResult = z.infer<
   typeof ImproveImageQueryResultSchema
 >;
 
+export const CommentOnQueryParamsSchema = z.object({
+  description: z.string(),
+  comment: z.string(),
+});
+export type CommentOnQueryParams = z.infer<typeof CommentOnQueryParamsSchema>;
+
 export const ImproveImageParamsSchema = ImproveImageQueryParamsSchema.pick({
   styleTags: true,
   description: true,
