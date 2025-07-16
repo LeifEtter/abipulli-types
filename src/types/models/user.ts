@@ -22,14 +22,6 @@ export const PasswordSchema = z
     "Password must contain at least one special character"
   );
 
-export const CountryCodeSchema = z.union([
-  z.literal("DE"),
-  z.literal("CH"),
-  z.literal("AT"),
-]);
-
-export type CountryCode = z.infer<typeof CountryCodeSchema>;
-
 export const GenderSchema = z.union([
   z.literal("weiblich"),
   z.literal("männlich"),
@@ -60,7 +52,6 @@ export const UserSchema = z.object({
   grade: z.number(),
   graduationYear: z.number(),
   city: z.string(),
-  countryCode: CountryCodeSchema,
   deadline: z.coerce.date(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
@@ -87,7 +78,6 @@ export const OnboardingInfoSchema = UserSchema.pick({
   grade: true,
   graduationYear: true,
   city: true,
-  countryCode: true,
   deadline: true,
   gender: true,
 });

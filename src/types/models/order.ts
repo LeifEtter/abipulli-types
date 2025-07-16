@@ -12,11 +12,19 @@ export const OrderStatusSchema = z.union([
 
 export type OrderStatus = z.infer<typeof OrderStatusSchema>;
 
+export const CountryCodeSchema = z.union([
+  z.literal("DE"),
+  z.literal("CH"),
+  z.literal("AT"),
+]);
+
+export type CountryCode = z.infer<typeof CountryCodeSchema>;
+
 export const OrderSchema = z.object({
   id: z.number(),
   customerId: z.number(),
   deadline: z.coerce.date(),
-  schoolCountry: z.string(),
+  schoolCountryCode: CountryCodeSchema,
   studentAmount: z.number(),
   school: z.string(),
   motto: z.string(),
@@ -32,7 +40,7 @@ export type Order = z.infer<typeof OrderSchema>;
 
 export const OrderCreateParamsSchema = OrderSchema.pick({
   school: true,
-  schoolCountry: true,
+  schoolCountryCode: true,
 }).extend({
   motto: OrderSchema.shape.motto.optional(),
   deadline: OrderSchema.shape.deadline.optional(),
