@@ -31,9 +31,9 @@ export const CountryCodeSchema = z.union([
 export type CountryCode = z.infer<typeof CountryCodeSchema>;
 
 export const GenderSchema = z.union([
-  z.literal("male"),
-  z.literal("female"),
-  z.literal("diverse"),
+  z.literal("weiblich"),
+  z.literal("männlich"),
+  z.literal("divers"),
 ]);
 
 export type Gender = z.infer<typeof GenderSchema>;
