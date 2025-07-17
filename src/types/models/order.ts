@@ -43,10 +43,13 @@ export type Order = z.infer<typeof OrderSchema>;
 
 export const OrderCreateParamsSchema = OrderSchema.pick({
   school: true,
+  schoolCity: true,
   schoolCountryCode: true,
+  deadline: true,
+  graduationYear: true,
+  currentGrade: true,
 }).extend({
   motto: OrderSchema.shape.motto.optional(),
-  deadline: OrderSchema.shape.deadline.optional(),
   studentAmount: OrderSchema.shape.studentAmount.optional(),
 });
 export type OrderCreateParams = z.infer<typeof OrderCreateParamsSchema>;
