@@ -40,15 +40,21 @@ export type MobileCountryCode = z.infer<typeof MobileCountryCodeSchema>;
 
 export const UserSchema = z.object({
   id: z.number(),
-  email: z.string().email(),
+  email: z
+    .string("Bitte gebe email ein")
+    .nonempty("bitte geb ein")
+    .pipe(z.email("Gib eine richtige Email an")),
   password: PasswordSchema,
-  firstName: z.string(),
-  lastName: z.string(),
+  firstName: z.string("Bitte gib deinen Vornamen an"),
+  lastName: z.string("Bitte gib deinen Nachnamen an"),
   gender: GenderSchema,
   mobileCountryCode: MobileCountryCodeSchema,
-  mobileNumber: z.string(),
+  mobileNumber: z.e164("Bitte gebe eine valide Nummer ein"),
   birthdate: z.coerce.date(),
-  grade: z.number(),
+  grade: z
+    .number("Gib eine Zahl von 1-13 an")
+    .min(1, "Gib eine Zahl von 1-13 an")
+    .max(13, "Gib eine Zahl von 1-13 an"),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   role: UserRoleSchema.optional(),
