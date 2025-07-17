@@ -1,6 +1,6 @@
 import { ChatSchema } from "./chat.js";
 import { DesignSchema } from "./design.js";
-import { z } from "zod";
+import { minLength, z } from "zod";
 
 export const OrderStatusSchema = z.union([
   z.literal("CREATED"),
@@ -25,8 +25,13 @@ export const OrderSchema = z.object({
   customerId: z.number(),
   deadline: z.coerce.date(),
   schoolCountryCode: CountryCodeSchema,
+  schoolCity: z.string("Bitte gebe eine Stadt ein"),
+  school: z.string("Bitte gib eure Schule an"),
   studentAmount: z.number(),
-  graduationYear: z.number(),
+  graduationYear: z
+    .number()
+    .min(1900, "Bitte gib ein valides Jahr an")
+    .max(3000, "Bitte gib ein valides Jahr an"),
   currentGrade: z.number(),
   motto: z.string(),
   deliveryAddress: z.string(),
@@ -51,6 +56,7 @@ export const OrderCreateParamsSchema = OrderSchema.pick({
   studentAmount: OrderSchema.shape.studentAmount.optional(),
 });
 export type OrderCreateParams = z.infer<typeof OrderCreateParamsSchema>;
+
 export const OrderCompleteParamsSchema = OrderSchema.pick({
   studentAmount: true,
   deliveryAddress: true,
