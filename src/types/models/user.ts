@@ -66,19 +66,16 @@ export const UserSchema = z.object({
 });
 export type User = z.infer<typeof UserSchema>;
 
+export const UserCreateParamsSchema = UserSchema.pick({
   email: true,
   password: true,
   firstName: true,
   lastName: true,
+  gender: true,
   mobileCountryCode: true,
   mobileNumber: true,
   birthdate: true,
-  school: true,
   grade: true,
-  graduationYear: true,
-  city: true,
-  deadline: true,
-  gender: true,
 });
 export type UserCreateParams = z.infer<typeof UserCreateParamsSchema>;
 
