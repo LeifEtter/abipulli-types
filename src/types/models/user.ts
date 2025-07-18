@@ -6,20 +6,20 @@ import { UserRoleSchema } from "./role.js";
 import { z } from "zod";
 
 export const PasswordSchema = z
-  .string()
-  .min(8, "Password must be at least 8 characters long")
-  .max(100, "Password must be less than 100 characters long")
+  .string("Bitte gebe ein Passwort ein")
+  .min(8, "Passwort muss mindestens 8 Charaktere lang sein")
+  .max(100, "Passwort darf höchstens aus 100 Charakteren bestehen")
   .refine(
     (val) => /[A-Z]/.test(val),
-    "Password must contain at least one uppercase letter"
+    "Passwort muss mindestens einen Großbuchstaben haben"
   )
   .refine(
     (val) => /[0-9]/.test(val),
-    "Password must contain at least one number"
+    "Password muss mindestens eine Nummer haben"
   )
   .refine(
     (val) => /[!@#$%^&*]/.test(val),
-    "Password must contain at least one special character"
+    "Passwort muss mindestens einen Spezialcharakter (@,#,$,%,&) haben"
   );
 
 export const GenderSchema = z.union([
@@ -49,12 +49,9 @@ export const UserSchema = z.object({
   lastName: z.string("Bitte gib deinen Nachnamen an"),
   gender: GenderSchema,
   mobileCountryCode: MobileCountryCodeSchema,
-  mobileNumber: z.e164("Bitte gebe eine valide Nummer ein"),
+  // mobileNumber: z.e164("Bitte gebe eine valide Nummer ein"),
+  mobileNumber: z.string("Bitte gebe eine valide Nummer ein"),
   birthdate: z.coerce.date(),
-  grade: z
-    .number("Gib eine Zahl von 1-13 an")
-    .min(1, "Gib eine Zahl von 1-13 an")
-    .max(13, "Gib eine Zahl von 1-13 an"),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
   role: UserRoleSchema.optional(),
@@ -77,7 +74,6 @@ export const UserCreateParamsSchema = UserSchema.pick({
   mobileCountryCode: true,
   mobileNumber: true,
   birthdate: true,
-  grade: true,
 });
 export type UserCreateParams = z.infer<typeof UserCreateParamsSchema>;
 

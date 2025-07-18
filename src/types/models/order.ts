@@ -29,10 +29,13 @@ export const OrderSchema = z.object({
   school: z.string("Bitte gib eure Schule an"),
   studentAmount: z.number(),
   graduationYear: z
-    .number()
+    .number("Bitte gib ein valides Jahr an")
     .min(1900, "Bitte gib ein valides Jahr an")
     .max(3000, "Bitte gib ein valides Jahr an"),
-  currentGrade: z.number(),
+  currentGrade: z
+    .number("Gib eine Zahl von 1-13 an")
+    .min(1, "Gib eine Zahl von 1-13 an")
+    .max(13, "Gib eine Zahl von 1-13 an"),
   motto: z.string(),
   deliveryAddress: z.string(),
   billingAddress: z.string(),
