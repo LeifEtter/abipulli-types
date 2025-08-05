@@ -16,4 +16,28 @@ export const errorMessages = {
   emailNotFound: "Email not found",
   faultySSOCredentials: "Invalid SSO credentials",
   missingToken: "Missing token",
+  backendConnectionError: "Backend couldn't be reached",
+};
+
+export const errorMessagesDE = {
+  faultyToken: "Token ist abgelaufen",
+  emailAlreadyRegistered: "Email schon registriert",
+  faultyLoginCredentials: "Falsches Email oder Passwort",
+  cantDeleteSelf: "Account konnte nicht gelöscht werden",
+  resourceNotFound: "Resource konnte nicht gefunden werden",
+  resourceNotOwned:
+    "Du hast nicht die benötigten Zugriffsrechte um auf dieses Resource zuzugreifen",
+  rolePowerTooLow:
+    "Deine Rolle verfügt nicht über die benötigten Zugriffsrechte",
+  missingImage: "Bild Datei fehlt",
+  imageUploadFailed: "Bild konnte nicht hochgeladen werden",
+  issueUploadingImage: "Bild konnte nicht hochgeladen werden",
+  missingBodyInfo: "Anfrage unvollständig",
+  paramIdMissing: "ID fehlt in den URL Parametern",
+  paramIdMalformed: "Falsche Form für ID in URL Parametern",
+  tokenUserDoesNotExist: "Es besteht kein Benutzer für diesen Token",
+  emailNotFound: "Email konnte nicht gefunden werden",
+  faultySSOCredentials: "SSO Authentifizierung fehlgeschlagen",
+  missingToken: "Token fehlt in Anfrage",
+  backendConnectionError: "Backend konnte nicht erreicht werden",
 };
