@@ -9,8 +9,10 @@ export const PulloverSchema = z.object({
   basePrice: z.number(),
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
-  imageId: z.number(),
-  image: ImageSchema,
+  frontImageId: z.number(),
+  frontImage: ImageSchema,
+  backImageId: z.number(),
+  backImage: ImageSchema,
 });
 export type Pullover = z.infer<typeof PulloverSchema>;
 
