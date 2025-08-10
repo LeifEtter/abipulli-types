@@ -21,6 +21,7 @@ export const ImageWithPositionAndScaleSchema = ImageSchema.extend({
   scaleX: z.number().optional(),
   scaleY: z.number().optional(),
   imageToDesignId: z.number(),
+  isBackside: z.boolean().default(false),
 });
 
 export type ImageWithPositionAndScale = z.infer<
@@ -46,6 +47,7 @@ export const DesignImageSchema = z.object({
   positionY: z.number(),
   scaleX: z.number().optional(),
   scaleY: z.number().optional(),
+  isBackside: z.boolean().default(false),
 });
 
 export const AddImageToDesignParamsSchema = DesignImageSchema.pick({
@@ -54,6 +56,7 @@ export const AddImageToDesignParamsSchema = DesignImageSchema.pick({
 }).extend({
   scaleX: z.number(),
   scaleY: z.number(),
+  isBackside: z.boolean().default(false),
 });
 export type AddImageToDesignParams = z.infer<
   typeof AddImageToDesignParamsSchema
