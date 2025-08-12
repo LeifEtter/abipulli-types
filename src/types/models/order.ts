@@ -25,8 +25,12 @@ export const OrderSchema = z.object({
   customerId: z.number(),
   deadline: z.coerce.date(),
   schoolCountryCode: CountryCodeSchema,
-  schoolCity: z.string("Bitte gebe eine Stadt ein"),
-  school: z.string("Bitte gib eure Schule an"),
+  schoolCity: z
+    .string("Bitte gebe eine Stadt ein")
+    .min(3, "Bitte gib eine valide Stadt ein"),
+  school: z
+    .string("Bitte gib eure Schule an")
+    .min(3, "Bitte gib eure Schule an"),
   studentAmount: z.number(),
   graduationYear: z
     .number("Bitte gib ein valides Jahr an")
